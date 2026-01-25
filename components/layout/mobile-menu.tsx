@@ -122,10 +122,15 @@ export function MobileMenu({ navigationLinks }: MobileMenuProps) {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-muted-foreground hover:text-brand-cyan transition-colors"
+                className="group p-2 transition-colors"
                 aria-label={social.label}
               >
-                <social.icon className="w-6 h-6" />
+                <span
+                  className="block text-muted-foreground transition-colors duration-300 group-hover:text-[var(--social-color)]"
+                  style={{ "--social-color": social.color } as React.CSSProperties}
+                >
+                  <social.icon className="w-6 h-6" />
+                </span>
               </a>
             ))}
           </div>

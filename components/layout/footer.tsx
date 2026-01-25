@@ -73,13 +73,19 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative p-3 rounded-xl border border-border/50 bg-card/30 hover:border-brand-cyan/50 hover:bg-brand-cyan/5 transition-all duration-300"
+                  className="group relative p-3 rounded-xl border border-border/50 bg-card/30 transition-all duration-300 hover:border-[var(--social-color)]/40 hover:bg-[var(--social-color)]/10"
+                  style={{ "--social-color": social.color } as React.CSSProperties}
                   aria-label={social.label}
                 >
                   {/* Glow effect on hover */}
-                  <div className="absolute inset-0 rounded-xl bg-brand-cyan/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300" />
+                  <div
+                    className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"
+                    style={{ backgroundColor: `${social.color}20` }}
+                  />
 
-                  <social.icon className="relative w-5 h-5 text-muted-foreground group-hover:text-brand-cyan transition-colors duration-300" />
+                  <span className="relative block w-5 h-5 text-muted-foreground transition-colors duration-300 group-hover:text-[var(--social-color)]">
+                    <social.icon className="w-5 h-5" />
+                  </span>
                 </a>
               ))}
             </div>
