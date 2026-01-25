@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-01-25
+
+### Added
+- Comprehensive SEO configuration
+  - OpenGraph meta tags with social image (1200x630)
+  - Twitter card support (summary_large_image)
+  - Page-specific metadata for About page
+  - Keywords and author metadata
+  - metadataBase for absolute URLs
+- Social share image (`public/images/social-rbr.png`)
+- Grey indicator ball when no streamers are online
+
+### Changed
+- Updated About page intro text to better reflect accordion content
+- HTML lang attribute from "en" to "pt-BR"
+- Improved description texts in Portuguese
+- Empty streamers state now has fixed min-height (300px) to prevent layout shift
+
+### Fixed
+- ESLint warning: escaped apostrophe in "Majora's Mask"
+
 ## [0.1.0] - 2026-01-25
 
 ### Added
@@ -66,5 +87,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Environment variables for sensitive Twitch API credentials
 - Proper .gitignore to exclude .env files
 
-[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/pedrorvelloso/randomizerbrasil/releases/tag/v0.1.0

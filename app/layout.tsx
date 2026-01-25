@@ -32,9 +32,47 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600", "700"],
 });
 
+function getBaseUrl() {
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return "http://localhost:3000";
+}
+
 export const metadata: Metadata = {
-  title: "Randomizer Brasil",
-  description: "Gaming and tech platform with modern cyan aesthetic",
+  metadataBase: new URL(getBaseUrl()),
+  title: {
+    default: "Randomizer Brasil",
+    template: "%s | Randomizer Brasil",
+  },
+  description: "Comunidade brasileira de randomizers. Acompanhe streams ao vivo, descubra jogos randomizados e conecte-se com outros jogadores.",
+  keywords: ["randomizer", "brasil", "zelda", "alttp", "oot", "speedrun", "twitch", "gaming"],
+  authors: [{ name: "Randomizer Brasil" }],
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Randomizer Brasil",
+    title: "Randomizer Brasil",
+    description: "Comunidade brasileira de randomizers. Acompanhe streams ao vivo, descubra jogos randomizados e conecte-se com outros jogadores.",
+    images: [
+      {
+        url: "/images/social-rbr.png",
+        width: 1200,
+        height: 630,
+        alt: "Randomizer Brasil",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Randomizer Brasil",
+    description: "Comunidade brasileira de randomizers. Acompanhe streams ao vivo, descubra jogos randomizados e conecte-se com outros jogadores.",
+    images: ["/images/social-rbr.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -43,7 +81,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="pt-BR" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased relative bg-background`}
       >
