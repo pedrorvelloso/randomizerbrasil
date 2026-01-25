@@ -1,0 +1,70 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [0.1.0] - 2026-01-25
+
+### Added
+- Initial release of Randomizer Brasil platform
+- Next.js 16.1.4 with TypeScript and App Router
+- Twitch API integration for live stream data
+  - Real-time streamer listings with auto-refresh (60s cache)
+  - Highlight videos from Rando Brasil channel (5min cache)
+  - Viewer count display on stream cards
+  - Live duration tracking for streams
+- Responsive UI with Tailwind CSS v4
+  - Custom cyan (#00D9FF) brand theme
+  - Dark mode design with navy background
+  - Neo-brutalist inspired design elements
+- shadcn/ui component library integration
+  - Button, Sheet, Accordion components
+  - Custom visually-hidden accessibility component
+- Performance optimizations following Vercel best practices
+  - Set-based game ID lookups (O(1) vs O(n))
+  - Dynamic imports for mobile menu (code-splitting)
+  - Hoisted style objects to prevent re-renders
+  - React Suspense boundaries for streaming content
+  - Server-side caching with Next.js unstable_cache
+- Header with responsive navigation
+  - Desktop navigation with hover effects
+  - Mobile menu with animated sidebar
+  - Full-height navigation links
+- Stream cards with thumbnail previews
+  - Eye icon with viewer count
+  - Live duration display
+  - Game name and stream title
+- VOD cards for highlight videos
+  - View count display
+  - Video duration
+  - Thumbnail with hover effects
+- About page with project information
+- Custom font stack
+  - Syne for headings
+  - DM Sans for body text
+  - JetBrains Mono for monospace elements
+- Background effects with gradient mesh and grain texture
+
+### Changed
+- N/A (initial release)
+
+### Deprecated
+- N/A
+
+### Removed
+- Mock data (replaced with live Twitch API)
+- LIVE badge from stream cards (section header already indicates "AO VIVO")
+
+### Fixed
+- N/A (initial release)
+
+### Security
+- Environment variables for sensitive Twitch API credentials
+- Proper .gitignore to exclude .env files
+
+[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/pedrorvelloso/randomizerbrasil/releases/tag/v0.1.0
