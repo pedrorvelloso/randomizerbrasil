@@ -68,7 +68,7 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-stretch h-full" aria-label="Main navigation">
-          {navigationLinks.map((link, index) => {
+          {navigationLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link key={link.href} href={link.href} className="group relative flex items-center">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Syne, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 import { BackgroundEffects } from "@/components/layout/background-effects";
 
 const geistSans = Geist({
@@ -88,9 +89,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased relative bg-background`}
       >
         <BackgroundEffects />
-        <div className="relative z-10">
+        <div className="relative z-10 min-h-screen flex flex-col">
           <Header />
-          {children}
+          <div className="flex-1">{children}</div>
+          <Footer />
         </div>
       </body>
     </html>
