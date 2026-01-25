@@ -32,8 +32,15 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600", "700"],
 });
 
+function getBaseUrl() {
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return "http://localhost:3000";
+}
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://randomizerbrasil.com.br"),
+  metadataBase: new URL(getBaseUrl()),
   title: {
     default: "Randomizer Brasil",
     template: "%s | Randomizer Brasil",
