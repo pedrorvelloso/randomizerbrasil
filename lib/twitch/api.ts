@@ -1,4 +1,5 @@
-import { games, users } from '@/data/data'
+import { games } from '@/data/data'
+import { getDeduplicatedRunners } from '@/lib/supabase/runners'
 import type { TwitchTokenResponse, TwitchStreamsResponse, StreamerData, TwitchVideosResponse, VideoData } from './types'
 
 const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID!
@@ -70,11 +71,15 @@ async function fetchStreams(usernames: string[], token: string): Promise<TwitchS
 
 /**
  * Get online streamers from the user list playing games from the game list
+ * Merges runners from Supabase database with static list (deduped)
  */
 export async function getOnlineStreamers(): Promise<StreamerData[]> {
   try {
-    const token = await getTwitchToken()
-    const response = await fetchStreams(users, token)
+    const [token, runners] = await Promise.all([
+      getTwitchToken(),
+      getDeduplicatedRunners(),
+    ])
+    const response = await fetchStreams(runners, token)
 
     // Filter streams by game_id from our games list (O(1) Set lookup)
     const filteredStreams = response.data.filter(stream =>
