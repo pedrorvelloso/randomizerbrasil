@@ -1,9 +1,19 @@
+import type { Metadata } from "next";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+export const metadata: Metadata = {
+  title: "Sobre",
+  description: "Descubra o que são randomizers, quais jogos nossa comunidade joga e como começar sua jornada no mundo dos randomizers.",
+  openGraph: {
+    title: "Sobre | Randomizer Brasil",
+    description: "Descubra o que são randomizers, quais jogos nossa comunidade joga e como começar sua jornada no mundo dos randomizers.",
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -21,9 +31,9 @@ export default function AboutPage() {
           </div>
 
           <p className="text-lg text-foreground/70 font-dm-sans leading-relaxed max-w-2xl">
-            Bem-vindo à nossa plataforma dedicada aos randomizers brasileiros.
-            Aqui você encontra informações importantes sobre nosso projeto,
-            funcionamento e diretrizes. Explore as seções abaixo para saber mais.
+            Randomizers transformam jogos clássicos em experiências únicas a cada partida.
+            Descubra como essa modalidade funciona, conheça os jogos que nossa comunidade
+            joga e saiba como começar sua jornada no mundo dos randomizers.
           </p>
         </div>
 
@@ -62,7 +72,7 @@ export default function AboutPage() {
                   <ul className="space-y-2 mb-4 list-disc list-inside marker:text-brand-cyan">
                     <li>The Legend of Zelda: A Link to The Past - Super Nintendo (ALTTP)</li>
                     <li>The Legend of Zelda: Ocarina of Time - Nintendo 64 (OOT)</li>
-                    <li>The Legend of Zelda: Majora's Mask - Nintendo 64 (MM)</li>
+                    <li>The Legend of Zelda: Majora&apos;s Mask - Nintendo 64 (MM)</li>
                     <li>The Legend of Zelda: The Minish Cap - GameBoy Advance (Minish)</li>
                     <li>The Legend of Zelda: Skyward Sword - Wii</li>
                     <li>Super Metroid - Super Nintendo</li>

@@ -14,7 +14,9 @@ export async function StreamersList() {
               <div className="w-4 h-4 rounded-full bg-red-500 animate-pulse-glow" />
               <div className="absolute inset-0 w-4 h-4 rounded-full bg-red-500 animate-ping" />
             </div>
-          ) : null}
+          ) : (
+            <div className="w-4 h-4 rounded-full bg-muted-foreground/40" />
+          )}
           <h2 className="text-5xl md:text-6xl font-bold tracking-tight font-syne uppercase bg-gradient-to-br from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent">
             Ao Vivo
           </h2>
@@ -23,7 +25,7 @@ export async function StreamersList() {
       </div>
 
       {streamers.length === 0 ? (
-        <div className="relative border-2 border-dashed border-border rounded-2xl p-12 text-center">
+        <div className="relative border-2 border-dashed border-border rounded-2xl p-12 text-center min-h-[300px] flex items-center justify-center">
           <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-brand-cyan/30" />
           <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-brand-cyan/30" />
           <p className="text-muted-foreground text-lg font-dm-sans">
