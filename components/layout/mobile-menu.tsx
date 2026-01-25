@@ -91,7 +91,9 @@ export function MobileMenu({ navigationLinks }: MobileMenuProps) {
         {/* Mobile Navigation */}
         <nav className="relative flex flex-col h-full justify-center px-8 gap-1" aria-label="Mobile navigation">
           {navigationLinks.map((link, index) => {
-            const isActive = pathname === link.href;
+            const isActive = link.href === "/"
+              ? pathname === "/"
+              : pathname?.startsWith(link.href) ?? false;
             return (
               <Link
                 key={link.href}
