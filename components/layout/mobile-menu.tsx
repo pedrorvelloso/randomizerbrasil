@@ -13,6 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
+import { socials } from "@/lib/socials";
 
 interface NavLink {
   href: string;
@@ -113,8 +114,29 @@ export function MobileMenu({ navigationLinks }: MobileMenuProps) {
             );
           })}
 
+          {/* Social Links */}
+          <div className="mt-12 pl-8 flex gap-4" style={bottomAccentStyle(navigationLinks.length)}>
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-2 transition-colors"
+                aria-label={social.label}
+              >
+                <span
+                  className="block text-muted-foreground transition-colors duration-300 group-hover:text-[var(--social-color)]"
+                  style={{ "--social-color": social.color } as React.CSSProperties}
+                >
+                  <social.icon className="w-6 h-6" />
+                </span>
+              </a>
+            ))}
+          </div>
+
           {/* Bottom Accent */}
-          <div className="mt-12 pl-20 space-y-2" style={bottomAccentStyle(navigationLinks.length)}>
+          <div className="mt-8 pl-8 space-y-2">
             <div className="h-px w-32 bg-gradient-to-r from-brand-cyan/50 to-transparent" />
             <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
               Hub da Comunidade
