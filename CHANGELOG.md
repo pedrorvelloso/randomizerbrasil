@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-01-25
+
+### Added
+- Custom error pages with neo-brutalist design
+  - 404 Not Found page with glitchy text effect
+  - 500 Internal Server Error page
+  - Reusable ErrorPage component for consistent error UI
+- Visual effects: animated grid background, scanlines, glowing orbs
+
 ## [0.4.0] - 2026-01-25
 
 ### Added
@@ -117,7 +126,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Environment variables for sensitive Twitch API credentials
 - Proper .gitignore to exclude .env files
 
-[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.2.0...v0.3.0
