@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-01-25
+
+### Added
+- Supabase integration for dynamic runners/streamers management
+  - Database table `runners` for storing streamer data
+  - Supabase client with graceful fallback when not configured
+  - Deduplicated runners list merging database with static list
+- Environment variables example file (`.env.example`)
+
+### Changed
+- Twitch API now fetches runners from Supabase + static list (deduped)
+- Supabase environment variables are server-only (not exposed to client)
+
 ## [0.3.1] - 2026-01-25
 
 ### Fixed
@@ -104,7 +117,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Environment variables for sensitive Twitch API credentials
 - Proper .gitignore to exclude .env files
 
-[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.1.0...v0.2.0
