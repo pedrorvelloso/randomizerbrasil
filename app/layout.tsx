@@ -33,8 +33,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 function getBaseUrl() {
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
   }
   return "http://localhost:3000";
 }
@@ -57,8 +57,10 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/social-rbr.png",
+        secureUrl: "/images/social-rbr.png",
         width: 1200,
-        height: 630,
+        height: 623,
+        type: "image/png",
         alt: "Randomizer Brasil",
       },
     ],
