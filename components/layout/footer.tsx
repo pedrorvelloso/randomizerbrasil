@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { socials } from "@/lib/socials";
+import { navLinks } from "@/lib/navigation";
 
 export function Footer() {
   return (
@@ -45,18 +46,15 @@ export function Footer() {
               Navegação
             </h3>
             <nav className="flex flex-col gap-2">
-              <Link
-                href="/"
-                className="text-sm text-muted-foreground hover:text-brand-cyan transition-colors font-dm-sans"
-              >
-                Assista
-              </Link>
-              <Link
-                href="/about"
-                className="text-sm text-muted-foreground hover:text-brand-cyan transition-colors font-dm-sans"
-              >
-                Sobre
-              </Link>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-muted-foreground hover:text-brand-cyan transition-colors font-dm-sans"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
           </div>
 

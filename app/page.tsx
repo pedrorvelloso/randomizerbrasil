@@ -3,8 +3,7 @@ import { StreamersList } from "@/components/features/streamers/streamers-list";
 import { StreamersLoading } from "@/components/features/streamers/streamers-loading";
 import { HighlightsList } from "@/components/features/highlights/highlights-list";
 import { HighlightsLoading } from "@/components/features/highlights/highlights-loading";
-
-export const revalidate = 60; // Revalidate every 60 seconds
+import { FEATURED_USER_ID } from "@/lib/config";
 
 export default function Home() {
   return (
@@ -18,7 +17,7 @@ export default function Home() {
 
         <section>
           <Suspense fallback={<HighlightsLoading />}>
-            <HighlightsList userId="530941879" />
+            <HighlightsList userId={FEATURED_USER_ID} />
           </Suspense>
         </section>
       </main>

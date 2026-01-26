@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { navLinks } from "@/lib/navigation";
 
 // Dynamic import for mobile menu to reduce initial bundle size
 // Sheet components are heavy and only needed on mobile
@@ -13,17 +14,6 @@ const MobileMenu = dynamic(
     ssr: false, // Mobile menu doesn't need SSR
   }
 );
-
-interface NavLink {
-  href: string;
-  label: string;
-}
-
-// Navigation links defined at module level to prevent recreation
-const navigationLinks: NavLink[] = [
-  { href: "/", label: "Assista" },
-  { href: "/about", label: "Sobre" },
-];
 
 export function Header() {
   const pathname = usePathname();
@@ -68,7 +58,7 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-stretch h-full" aria-label="Main navigation">
-          {navigationLinks.map((link) => {
+          {navLinks.map((link) => {
             const isActive = link.href === "/"
               ? pathname === "/"
               : pathname?.startsWith(link.href) ?? false;
@@ -92,7 +82,7 @@ export function Header() {
         </nav>
 
         {/* Mobile Menu - Dynamically loaded to reduce initial bundle */}
-        <MobileMenu navigationLinks={navigationLinks} />
+        <MobileMenu navigationLinks={navLinks} />
       </div>
     </header>
   );

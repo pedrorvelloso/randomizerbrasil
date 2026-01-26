@@ -1,11 +1,2 @@
-export interface Streamer {
-  id: string;
-  username: string;
-  displayName: string;
-  twitchUrl: string;
-  thumbnailUrl: string;
-  streamTitle: string;
-  gameName: string;
-  startedAt: string;
-  viewerCount: number;
-}
+// Re-export types from twitch module to avoid duplication
+export type { StreamerData as Streamer, VideoData } from './twitch/types'
