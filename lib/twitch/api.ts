@@ -60,6 +60,7 @@ async function fetchStreams(usernames: string[], token: string): Promise<TwitchS
       'Client-ID': TWITCH_CLIENT_ID,
       'Authorization': `Bearer ${token}`,
     },
+    cache: 'no-store', // Let unstable_cache handle caching
   })
 
   if (!response.ok) {
@@ -122,6 +123,7 @@ export async function getUserHighlights(userId: string, limit: number = 20): Pro
         'Client-ID': TWITCH_CLIENT_ID,
         'Authorization': `Bearer ${token}`,
       },
+      cache: 'no-store', // Let unstable_cache handle caching
     })
 
     if (!response.ok) {

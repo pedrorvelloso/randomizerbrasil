@@ -6,7 +6,10 @@ interface HighlightsListProps {
 }
 
 export async function HighlightsList({ userId }: HighlightsListProps) {
-  const highlights = await getCachedHighlights(userId, 8);
+  const highlights = await getCachedHighlights(userId, 8).catch((error) => {
+    console.error('Error fetching highlights:', error);
+    return [];
+  });
 
   if (highlights.length === 0) {
     return null;

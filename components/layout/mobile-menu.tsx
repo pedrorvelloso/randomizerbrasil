@@ -14,11 +14,7 @@ import {
 } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { socials } from "@/lib/socials";
-
-interface NavLink {
-  href: string;
-  label: string;
-}
+import type { NavLink } from "@/lib/navigation";
 
 interface MobileMenuProps {
   navigationLinks: NavLink[];
@@ -145,28 +141,6 @@ export function MobileMenu({ navigationLinks }: MobileMenuProps) {
             </p>
           </div>
         </nav>
-
-        <style jsx>{`
-          @keyframes slideInRight {
-            from {
-              opacity: 0;
-              transform: translateX(30px);
-            }
-            to {
-              opacity: 1;
-              transform: translateX(0);
-            }
-          }
-
-          @keyframes gridPulse {
-            0%, 100% {
-              opacity: 0.03;
-            }
-            50% {
-              opacity: 0.05;
-            }
-          }
-        `}</style>
       </SheetContent>
     </Sheet>
   );
