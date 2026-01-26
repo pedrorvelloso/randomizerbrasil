@@ -30,7 +30,7 @@ A modern, high-performance web platform showcasing live streams and highlights f
 ## 📋 Prerequisites
 
 - Node.js 18.x or higher
-- npm, yarn, or pnpm
+- pnpm 8.x or higher (recommended) or npm
 - Twitch Developer Account with Client ID and Secret
 
 ## 🛠️ Installation
@@ -43,7 +43,7 @@ A modern, high-performance web platform showcasing live streams and highlights f
 
 2. **Install dependencies**
    ```bash
-   npm install
+   pnpm install
    ```
 
 3. **Set up environment variables**
@@ -58,7 +58,7 @@ A modern, high-performance web platform showcasing live streams and highlights f
 
 4. **Run the development server**
    ```bash
-   npm run dev
+   pnpm dev
    ```
 
 5. **Open your browser**
@@ -94,10 +94,10 @@ rbr/
 ## 🎯 Scripts
 
 ```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
+pnpm dev             # Start development server
+pnpm build           # Build for production
+pnpm start           # Start production server
+pnpm lint            # Run ESLint
 ```
 
 ## ⚙️ Configuration
