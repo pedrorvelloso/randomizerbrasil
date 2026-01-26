@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Syne, DM_Sans, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -90,6 +91,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased relative bg-background`}
       >
+        <NextTopLoader
+          color="#00D9FF"
+          height={3}
+          showSpinner={false}
+          shadow="0 0 10px #00D9FF, 0 0 5px #00D9FF"
+        />
         <BackgroundEffects />
         <div className="relative z-10 min-h-screen flex flex-col">
           <Header />
