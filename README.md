@@ -32,6 +32,7 @@ A modern, high-performance web platform showcasing live streams and highlights f
 - Node.js 18.x or higher
 - pnpm 8.x or higher (recommended) or npm
 - Twitch Developer Account with Client ID and Secret
+- Supabase Account (optional - for dynamic streamer management)
 
 ## 🛠️ Installation
 
@@ -50,11 +51,23 @@ A modern, high-performance web platform showcasing live streams and highlights f
 
    Create a `.env.local` file in the root directory:
    ```env
-   TWITCH_CLIENT_ID=your_client_id_here
-   TWITCH_CLIENT_SECRET=your_client_secret_here
+   # Twitch API Credentials (Required)
+   TWITCH_CLIENT_ID=your_twitch_client_id
+   TWITCH_CLIENT_SECRET=your_twitch_client_secret
+
+   # Supabase Configuration (Optional - for database features)
+   SUPABASE_URL=https://your-project.supabase.co
+   SUPABASE_PUBLISHABLE_DEFAULT_KEY=your_supabase_anon_key
+
+   # Featured User ID (Optional - defaults to randobrasil)
+   FEATURED_USER_ID=530941879
    ```
 
-   Get your credentials from [Twitch Developer Console](https://dev.twitch.tv/console).
+   **Get your credentials:**
+   - **Twitch:** [Twitch Developer Console](https://dev.twitch.tv/console)
+   - **Supabase:** [Supabase Dashboard](https://supabase.com/dashboard) → Settings → API
+
+   > **Note:** Supabase is optional. The app works with the static streamer list in `data/data.ts` if Supabase is not configured.
 
 4. **Run the development server**
    ```bash
@@ -111,6 +124,26 @@ export const users = ["randobrasil", "xx_soket_xx", ...];
 export const games = new Set(["5635", "9435", ...]); // Minish Cap, ALttP, OoT, etc.
 ```
 
+### Supabase Integration (Optional)
+
+Supabase enables dynamic streamer management through a database:
+
+- **Without Supabase:** Uses static `users` array from `data/data.ts`
+- **With Supabase:** Merges database runners with static list (deduplicated)
+
+**Database Schema:**
+```sql
+CREATE TABLE runners (
+  id UUID PRIMARY KEY,
+  stream_name TEXT NOT NULL,
+  source TEXT CHECK (source IN ('discord', 'manual')),
+  source_id TEXT,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+```
+
+Configure in `.env.local` with your Supabase project credentials.
+
 ### Cache Settings
 
 - **Streamers:** 60 seconds (live data)
@@ -124,6 +157,14 @@ export const getCachedStreamers = unstable_cache(
   ['twitch-streamers'],
   { revalidate: 60 }
 )
+```
+
+### Featured User
+
+Control which user's highlights are displayed on the home page:
+
+```env
+FEATURED_USER_ID=530941879  # Defaults to randobrasil
 ```
 
 ## 🎨 Design System
