@@ -1,21 +1,48 @@
-import type { Metadata } from "next";
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState, startTransition } from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-export const metadata: Metadata = {
-  title: "Sobre",
-  description: "Descubra o que são randomizers, quais jogos nossa comunidade joga e como começar sua jornada no mundo dos randomizers.",
-  openGraph: {
-    title: "Sobre | Randomizer Brasil",
-    description: "Descubra o que são randomizers, quais jogos nossa comunidade joga e como começar sua jornada no mundo dos randomizers.",
-  },
-};
+import { socials } from "@/lib/socials";
 
 export default function AboutPage() {
+  const [openItem, setOpenItem] = useState<string | undefined>(undefined);
+
+  // Handle initial hash and hash changes after hydration
+  useEffect(() => {
+    // Check initial hash
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      startTransition(() => {
+        setOpenItem(hash);
+      });
+      // Scroll to the element after a short delay to ensure it's rendered
+      setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    // Handle hash changes (e.g., when clicking a link with hash)
+    const handleHashChange = () => {
+      const newHash = window.location.hash.replace('#', '');
+      startTransition(() => {
+        setOpenItem(newHash || undefined);
+      });
+      if (newHash) {
+        setTimeout(() => {
+          document.getElementById(newHash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
   return (
     <div className="relative min-h-screen overflow-hidden">
       <main className="relative container mx-auto px-4 py-16">
@@ -47,7 +74,13 @@ export default function AboutPage() {
             {/* Subtle gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/5 via-transparent to-accent/5 pointer-events-none" />
 
-            <Accordion type="single" collapsible className="relative w-full">
+            <Accordion
+              type="single"
+              collapsible
+              className="relative w-full"
+              value={openItem}
+              onValueChange={setOpenItem}
+            >
               <AccordionItem value="item-1">
                 <AccordionTrigger>O que é Randomizer?</AccordionTrigger>
                 <AccordionContent>
@@ -104,6 +137,51 @@ export default function AboutPage() {
                     emuladores, porém há que atentar-se pois para jogar competitivamente existem regras a
                     serem seguidas a respeito dos emuladores permitidos em competições. Porém se o seu
                     objetivo é apenas divertir-se, pode utilizar o que melhor lhe convém.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="aparecer-na-lista" id="aparecer-na-lista">
+                <AccordionTrigger>Como aparecer na lista de streams?</AccordionTrigger>
+                <AccordionContent>
+                  <p className="mb-4">
+                    Quer que sua live apareça na página inicial do Randomizer Brasil? É muito simples!
+                    Basta seguir esses passos:
+                  </p>
+                  <ol className="space-y-3 mb-4 list-decimal list-inside marker:text-brand-cyan">
+                    <li className="pl-2">
+                      <strong className="text-foreground">Entre no{" "}
+                        <Link
+                          href={socials.find(s => s.label === "Discord")?.href ?? "#"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand-cyan hover:text-brand-cyan-light underline decoration-brand-cyan/30 hover:decoration-brand-cyan transition-colors"
+                        >
+                          Discord
+                        </Link>
+                        {" "}da comunidade
+                      </strong>
+                      <p className="ml-6 mt-1 text-muted-foreground">
+                        Junte-se ao nosso servidor oficial no Discord onde toda a comunidade se reúne.
+                      </p>
+                    </li>
+                    <li className="pl-2">
+                      <strong className="text-foreground">Encontre o bot RBR.watch</strong>
+                      <p className="ml-6 mt-1 text-muted-foreground">
+                        Nosso bot automatizado gerencia a lista de streamers da comunidade.
+                      </p>
+                    </li>
+                    <li className="pl-2">
+                      <strong className="text-foreground">Use o comando <code className="px-1.5 py-0.5 bg-muted rounded text-brand-cyan font-mono text-sm">/twitch</code></strong>
+                      <p className="ml-6 mt-1 text-muted-foreground">
+                        Digite o comando seguido do seu nome de usuário da Twitch para registrar sua stream.
+                      </p>
+                    </li>
+                  </ol>
+                  <p className="text-sm text-muted-foreground border-l-2 border-brand-cyan/50 pl-4 py-2 bg-brand-cyan/5 rounded-r">
+                    <strong className="text-brand-cyan">Importante:</strong> Sua stream só aparecerá na lista quando você estiver
+                    transmitindo um dos jogos randomizados que a comunidade acompanha. Certifique-se de estar jogando
+                    um dos títulos listados acima!
                   </p>
                 </AccordionContent>
               </AccordionItem>
