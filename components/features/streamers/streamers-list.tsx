@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { StreamerCard } from "./streamer-card";
 import { getCachedStreamers } from "@/lib/twitch/cached";
 
@@ -25,11 +26,21 @@ export async function StreamersList() {
       </div>
 
       {streamers.length === 0 ? (
-        <div className="relative border-2 border-dashed border-border rounded-2xl p-12 text-center min-h-[300px] flex items-center justify-center">
+        <div className="relative border-2 border-dashed border-border rounded-2xl p-12 text-center min-h-[300px] flex flex-col items-center justify-center gap-4">
           <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-brand-cyan/30" />
           <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-brand-cyan/30" />
           <p className="text-muted-foreground text-lg font-dm-sans">
             Nenhum streamer ao vivo no momento com jogos randomizados.
+          </p>
+          <p className="text-sm text-muted-foreground/80 max-w-md">
+            Quer aparecer aqui?{" "}
+            <Link
+              href="/about#aparecer-na-lista"
+              className="text-brand-cyan hover:text-brand-cyan-light underline decoration-brand-cyan/30 hover:decoration-brand-cyan transition-colors font-medium"
+            >
+              Saiba como registrar sua stream
+            </Link>
+            {" "}na lista de streamers da comunidade.
           </p>
         </div>
       ) : (
