@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-01-27
+
+### Added
+- Auto-refresh toggle for live streamers list with 60-second polling interval
+- User-controlled pause/resume functionality for list updates
+- localStorage persistence for auto-refresh preference
+- Visibility API integration to pause updates when tab is hidden
+- Tooltip component with site-consistent styling
+- Visual state indicator (green border/icon) for active auto-refresh
+
+### Changed
+- Streamers list now supports client-side auto-refresh with manual control
+- API endpoint uses getCachedStreamers() for efficient data fetching
+
 ## [0.8.0] - 2026-01-26
 
 ### Added
@@ -150,7 +164,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Environment variables for sensitive Twitch API credentials
 - Proper .gitignore to exclude .env files
 
-[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.5.0...v0.6.0
