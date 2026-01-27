@@ -63,7 +63,6 @@ export function Header() {
             const isActive = link.href === "/"
               ? normalizePathname === "/"
               : normalizePathname?.startsWith(link.href)
-            console.log({ link: link.href, pathname, isActive, normalizePathname })
             return (
               <Link key={link.href} href={link.href} className="group relative flex items-center">
                 <div className="relative px-5 h-full flex items-center overflow-hidden">
