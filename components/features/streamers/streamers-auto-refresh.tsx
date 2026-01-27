@@ -105,7 +105,7 @@ export function StreamersAutoRefresh({
                   onClick={toggleAutoRefresh}
                   aria-pressed={autoRefreshEnabled}
                   aria-label={autoRefreshEnabled ? 'Pausar atualização automática' : 'Ativar atualização automática'}
-                  className={`mt-2 flex items-center justify-center p-2 rounded-lg border transition-colors cursor-pointer ${
+                  className={`mt-2 hidden md:flex items-center justify-center p-2 rounded-lg border transition-colors cursor-pointer ${
                     autoRefreshEnabled
                       ? 'border-emerald-600/60 text-emerald-600/90 bg-emerald-600/5 hover:bg-emerald-600/10'
                       : 'border-border/40 text-muted-foreground bg-card/30 hover:bg-card/80 hover:text-foreground'
