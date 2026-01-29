@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Eye } from "lucide-react";
 import { Streamer } from "@/lib/types";
-import { formatLiveDuration } from "@/lib/format-duration";
 
 interface StreamerCardProps {
   streamer: Streamer;
@@ -10,8 +9,6 @@ interface StreamerCardProps {
 }
 
 export function StreamerCard({ streamer, priority = false }: StreamerCardProps) {
-  const liveDuration = formatLiveDuration(streamer.startedAt);
-
   return (
     <Link
       href={streamer.twitchUrl}
@@ -39,9 +36,9 @@ export function StreamerCard({ streamer, priority = false }: StreamerCardProps) 
           {streamer.viewerCount.toLocaleString()}
         </div>
 
-        {/* Duration */}
+        {/* Duration (computed server-side in Twitch mapping) */}
         <div className="absolute top-3 right-3 bg-black/90 backdrop-blur-sm px-3 py-1.5 font-mono text-xs font-medium text-white border border-white/10 rounded-lg">
-          {liveDuration}
+          {streamer.liveDuration}
         </div>
 
       </div>
