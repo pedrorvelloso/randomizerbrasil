@@ -1,5 +1,6 @@
 import { games } from '@/data/data'
 import { getDeduplicatedRunners } from '@/lib/supabase/runners'
+import { Streamer, Vod } from './models'
 import type { TwitchTokenResponse, TwitchStreamsResponse, StreamerData, TwitchVideosResponse, VideoData } from './types'
 
 const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID!
@@ -87,18 +88,8 @@ export async function getOnlineStreamers(): Promise<StreamerData[]> {
       games.has(stream.game_id)
     )
 
-    // Transform to our format
-    return filteredStreams.map(stream => ({
-      id: stream.user_id,
-      username: stream.user_login,
-      displayName: stream.user_name,
-      twitchUrl: `https://twitch.tv/${stream.user_login}`,
-      thumbnailUrl: stream.thumbnail_url.replace('{width}', '1280').replace('{height}', '720'),
-      streamTitle: stream.title,
-      gameName: stream.game_name,
-      startedAt: stream.started_at,
-      viewerCount: stream.viewer_count,
-    }))
+    // Transform to our model, then return plain serializable data
+    return filteredStreams.map(stream => Streamer.fromTwitchStream(stream).toData())
   } catch (error) {
     console.error('Error fetching Twitch streams:', error)
     throw error
@@ -132,18 +123,8 @@ export async function getUserHighlights(userId: string, limit: number = 20): Pro
 
     const data: TwitchVideosResponse = await response.json()
 
-    // Transform to our format
-    return data.data.map(video => ({
-      id: video.id,
-      username: video.user_login,
-      displayName: video.user_name,
-      title: video.title,
-      thumbnailUrl: video.thumbnail_url.replace('%{width}', '1280').replace('%{height}', '720'),
-      url: video.url,
-      viewCount: video.view_count,
-      createdAt: video.created_at,
-      duration: video.duration,
-    }))
+    // Transform to our model, then return plain serializable data
+    return data.data.map(video => Vod.fromTwitchVideo(video).toData())
   } catch (error) {
     console.error('Error fetching Twitch highlights:', error)
     throw error

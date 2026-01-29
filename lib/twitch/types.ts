@@ -37,6 +37,11 @@ export interface StreamerData {
   streamTitle: string
   gameName: string
   startedAt: string
+  /**
+   * Precomputed on the server to avoid client-side hydration mismatches.
+   * Format: H:MM (e.g. 5:07)
+   */
+  liveDuration: string
   viewerCount: number
 }
 

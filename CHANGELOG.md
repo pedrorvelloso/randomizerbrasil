@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.2] - 2026-01-28
+
+### Added
+- Twitch model classes (`Streamer`, `Vod`) to centralize API mapping logic
+- `date-fns` dependency for server-side duration formatting
+
+### Fixed
+- Live duration is now precomputed server-side to avoid hydration mismatches
+
 ## [0.9.1] - 2026-01-27
 
 ### Changed
@@ -169,7 +178,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Environment variables for sensitive Twitch API credentials
 - Proper .gitignore to exclude .env files
 
-[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.9.1...HEAD
+[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.9.2...HEAD
+[0.9.2]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.9.1...v0.9.2
 [0.9.1]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.7.0...v0.8.0
