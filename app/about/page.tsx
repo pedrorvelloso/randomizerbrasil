@@ -11,7 +11,7 @@ import {
 import { socials } from "@/lib/socials";
 
 export default function AboutPage() {
-  const [openItem, setOpenItem] = useState<string | undefined>(undefined);
+  const [openItem, setOpenItem] = useState<string>("");
 
   // Handle initial hash and hash changes after hydration
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function AboutPage() {
     const handleHashChange = () => {
       const newHash = window.location.hash.replace('#', '');
       startTransition(() => {
-        setOpenItem(newHash || undefined);
+        setOpenItem(newHash || "");
       });
       if (newHash) {
         setTimeout(() => {
