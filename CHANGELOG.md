@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.5] - 2026-01-30
+
+### Fixed
+- Home page now uses dynamic rendering to always show fresh streamer data
+- Eliminated stale-while-revalidate issue requiring double page reload
+
 ## [0.9.4] - 2026-01-30
 
 ### Added
@@ -190,7 +196,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Environment variables for sensitive Twitch API credentials
 - Proper .gitignore to exclude .env files
 
-[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.9.4...HEAD
+[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.9.5...HEAD
+[0.9.5]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.9.4...v0.9.5
 [0.9.4]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.9.3...v0.9.4
 [0.9.3]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.9.2...v0.9.3
 [0.9.2]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.9.1...v0.9.2
