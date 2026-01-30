@@ -5,6 +5,8 @@ import { HighlightsList } from "@/components/features/highlights/highlights-list
 import { HighlightsLoading } from "@/components/features/highlights/highlights-loading";
 import { FEATURED_USER_ID } from "@/lib/config";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <div className="relative overflow-hidden">
