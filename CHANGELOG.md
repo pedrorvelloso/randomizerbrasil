@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-01-31
+
+### Changed
+- Replaced stale-while-revalidate caching with hard expiry using `s-maxage` HTTP headers
+- Streamer data now fetches from internal API route with CDN-level caching
+- Cache expires after 60 seconds (no stale data served after long gaps)
+
+### Added
+- `getBaseUrl()` utility function for centralized URL generation across environments
+- Automatic Vercel environment variable support (production, preview, local)
+
+### Removed
+- `getCachedStreamers` from cached module (no longer needed)
+- `unstable_cache` wrapper from streamers API route
+
 ## [0.9.5] - 2026-01-30
 
 ### Fixed
