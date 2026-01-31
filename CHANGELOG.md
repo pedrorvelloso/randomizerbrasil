@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.1] - 2026-01-31
+
+### Fixed
+- Layout shift between skeleton loading and empty state in streamer section
+- Inconsistent vertical padding between home and about pages (unified to `py-16`)
+- Skeleton now shows responsive number of cards (1 on mobile, 2 on sm, 3 on lg, 4 on xl) to match actual content layout
+- Reserved minimum height for streamer section to prevent content jumping during load
+
 ## [0.10.0] - 2026-01-31
 
 ### Changed

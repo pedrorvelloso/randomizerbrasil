@@ -10,8 +10,8 @@ export const dynamic = "force-dynamic";
 export default function Home() {
   return (
     <div className="relative overflow-hidden">
-      <main className="relative container mx-auto px-4 py-12 space-y-24">
-        <section>
+      <main className="relative container mx-auto px-4 py-16 space-y-24">
+        <section className="min-h-[420px]">
           <Suspense fallback={<StreamersLoading />}>
             <StreamersList />
           </Suspense>
