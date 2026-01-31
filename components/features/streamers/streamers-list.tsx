@@ -1,9 +1,23 @@
 import Link from "next/link";
-import { getCachedStreamers } from "@/lib/twitch/cached";
 import { StreamerCard } from "./streamer-card";
+import type { StreamerData } from "@/lib/twitch/types";
+import { getBaseUrl } from "@/lib/utils/get-base-url";
+
+async function getStreamers(): Promise<StreamerData[]> {
+  const res = await fetch(`${getBaseUrl()}/api/streamers`, {
+    cache: "no-store", // Don't add another cache layer, rely on s-maxage
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch streamers");
+  }
+
+  const json = await res.json();
+  return json.data;
+}
 
 export async function StreamersList() {
-  const streamers = await getCachedStreamers();
+  const streamers = await getStreamers();
 
   return (
     <>

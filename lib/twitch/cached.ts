@@ -1,18 +1,5 @@
 import { unstable_cache } from 'next/cache'
-import { getOnlineStreamers, getUserHighlights } from './api'
-
-/**
- * Cached version of getOnlineStreamers
- * Revalidates every 60 seconds
- */
-export const getCachedStreamers = unstable_cache(
-  async () => getOnlineStreamers(),
-  ['twitch-streamers'],
-  {
-    revalidate: 60, // Cache for 1 minute
-    tags: ['streamers'],
-  }
-)
+import { getUserHighlights } from './api'
 
 /**
  * Cached version of getUserHighlights

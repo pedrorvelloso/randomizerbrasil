@@ -7,6 +7,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { BackgroundEffects } from "@/components/layout/background-effects";
+import { getBaseUrl } from "@/lib/utils/get-base-url";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,13 +36,6 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-
-function getBaseUrl() {
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
-  }
-  return "http://localhost:3000";
-}
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseUrl()),
