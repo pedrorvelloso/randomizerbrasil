@@ -12,12 +12,14 @@ export function StreamersLoading() {
         </div>
       </div>
 
-      {/* Cards grid matching the loaded state */}
+      {/* Cards grid matching the loaded state - show 1 row at each breakpoint */}
       <div className="grid grid-cols-1 gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {Array.from({ length: 4 }).map((_, i) => (
           <div
             key={i}
-            className="block h-full overflow-hidden rounded-2xl border-2 border-border bg-card animate-pulse"
+            className={`h-full overflow-hidden rounded-2xl border-2 border-border bg-card animate-pulse ${
+              i === 1 ? "hidden sm:block" : ""
+            }${i === 2 ? "hidden lg:block" : ""}${i === 3 ? "hidden xl:block" : ""}`}
           >
             {/* Image skeleton */}
             <div className="relative aspect-video bg-muted/50" />
