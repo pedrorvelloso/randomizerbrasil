@@ -1,5 +1,4 @@
 export const users = [
-  "randobrasil",
   "xx_soket_xx",
   "grafittex",
   "luiferns",
