@@ -7,6 +7,7 @@ export type RunnerSource = 'db' | 'static'
 export interface RunnerWithSource {
   name: string
   source: RunnerSource
+  source_id?: string | null
 }
 
 /**
@@ -56,6 +57,7 @@ export async function getRunnersWithSource(): Promise<RunnerWithSource[]> {
   const result: RunnerWithSource[] = dbRunners.map((r) => ({
     name: r.stream_name,
     source: 'db' as const,
+    source_id: r.source_id,
   }))
 
   // Add static runners that aren't in DB
