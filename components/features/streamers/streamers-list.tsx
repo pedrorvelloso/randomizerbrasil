@@ -50,11 +50,11 @@ export async function StreamersList() {
               Quer aparecer aqui?{" "}
               <Link
                 href="/about#aparecer-na-lista"
-                className="text-brand-cyan hover:text-brand-cyan-light underline decoration-brand-cyan/30 hover:decoration-brand-cyan transition-colors font-medium"
+                className="font-medium text-brand-cyan hover:text-brand-cyan-light underline decoration-brand-cyan/30 hover:decoration-brand-cyan transition-colors"
               >
                 Saiba como registrar sua stream
-              </Link>
-              {" "}na lista de streamers da comunidade.
+              </Link>{" "}
+              na lista de streamers da comunidade.
             </p>
           </div>
         </div>
