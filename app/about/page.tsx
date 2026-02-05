@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ConnectButton } from "@/components/features/connect";
 import { socials } from "@/lib/socials";
 import { getBaseUrl } from "@/lib/utils/get-base-url";
 import { DiscordIcon } from "@/components/icons/social-icons";
@@ -148,8 +149,31 @@ export default function AboutPage() {
                 <AccordionContent>
                   <p className="mb-4">
                     Quer que sua live apareça na página inicial do Randomizer Brasil? É muito simples!
-                    Basta seguir esses passos:
                   </p>
+
+                  {/* Primary action: Connect via website */}
+                  <div className="mb-6 p-4 bg-brand-cyan/10 border border-brand-cyan/30 rounded-lg">
+                    <h4 className="text-foreground font-semibold mb-2 flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-full bg-brand-cyan text-brand-navy text-sm font-bold flex items-center justify-center">1</span>
+                      Forma mais rápida: Conecte pelo site
+                    </h4>
+                    <p className="text-muted-foreground text-sm mb-3">
+                      Se você já é membro do nosso Discord e tem sua conta Twitch conectada ao Discord,
+                      basta clicar no botão abaixo para registrar sua stream automaticamente.
+                    </p>
+                    <ConnectButton />
+                  </div>
+
+                  {/* Alternative: Bot command */}
+                  <div className="mb-4">
+                    <h4 className="text-foreground font-semibold mb-2 flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-full bg-muted text-muted-foreground text-sm font-bold flex items-center justify-center">2</span>
+                      Alternativa: Use o comando do bot
+                    </h4>
+                    <p className="text-muted-foreground text-sm mb-3">
+                      Você também pode registrar sua stream diretamente pelo Discord:
+                    </p>
+                  </div>
                   <ol className="space-y-3 mb-4 list-decimal list-inside marker:text-brand-cyan">
                     <li className="pl-2">
                       <strong className="text-foreground">Entre no{" "}

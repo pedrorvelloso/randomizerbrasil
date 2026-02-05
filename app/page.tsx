@@ -3,6 +3,7 @@ import { StreamersList } from "@/components/features/streamers/streamers-list";
 import { StreamersLoading } from "@/components/features/streamers/streamers-loading";
 import { HighlightsList } from "@/components/features/highlights/highlights-list";
 import { HighlightsLoading } from "@/components/features/highlights/highlights-loading";
+import { ConnectFlowWrapper } from "@/components/features/connect/connect-flow-wrapper";
 import { FEATURED_USER_ID } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
@@ -23,6 +24,11 @@ export default function Home() {
           </Suspense>
         </section>
       </main>
+
+      {/* Connect flow modal - triggered by URL params */}
+      <Suspense fallback={null}>
+        <ConnectFlowWrapper />
+      </Suspense>
     </div>
   );
 }
