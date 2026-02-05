@@ -9,6 +9,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { socials } from "@/lib/socials";
+import { getBaseUrl } from "@/lib/utils/get-base-url";
+import { DiscordIcon } from "@/components/icons/social-icons";
 
 export default function AboutPage() {
   const [openItem, setOpenItem] = useState<string>("");
@@ -183,6 +185,36 @@ export default function AboutPage() {
                     transmitindo um dos jogos randomizados que a comunidade acompanha. Certifique-se de estar jogando
                     um dos títulos listados acima!
                   </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="bot-discord" id="bot-discord">
+                <AccordionTrigger>Leve a RBR para seu servidor Discord</AccordionTrigger>
+                <AccordionContent>
+                  <p className="mb-4">
+                    Quer acompanhar as streams da comunidade diretamente no seu servidor Discord?
+                    Adicione o bot RBR.watch e tenha acesso às informações da comunidade sem sair do seu servidor!
+                  </p>
+                  <div className="mb-4">
+                    <h4 className="text-foreground font-semibold mb-2">O que o bot faz no seu servidor:</h4>
+                    <ul className="space-y-2 list-disc list-inside marker:text-brand-cyan">
+                      <li>Mostra quem está online transmitindo randomizers</li>
+                      <li>Exibe a lista de runners da comunidade</li>
+                    </ul>
+                  </div>
+                  <p className="text-sm text-muted-foreground border-l-2 border-brand-cyan/50 pl-4 py-2 bg-brand-cyan/5 rounded-r mb-4">
+                    <strong className="text-brand-cyan">Nota:</strong> O registro de streams só pode ser feito no servidor
+                    oficial da RBR. O bot em servidores externos serve para acompanhar a comunidade.
+                  </p>
+                  <a
+                    href={`${getBaseUrl()}/bot`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold rounded-lg transition-colors"
+                  >
+                    <DiscordIcon className="w-5 h-5" />
+                    Adicionar Bot ao Servidor
+                  </a>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

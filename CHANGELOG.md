@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-02-04
+
+### Added
+
+- `/discord` redirect to RBR Discord server invite
+- `/bot` redirect for Discord bot OAuth invite
+- Bot invite link in footer navigation with external link icon on hover
+- "Leve a RBR para seu servidor Discord" section in About page with bot features explanation
+- Reusable `Logo` component for consistent branding across header and footer
+
+### Changed
+
+- Header and footer now use shared `Logo` component with consistent `font-syne` styling
+- Discord social link now uses internal `/discord` redirect instead of direct URL
+- Header subtitle now uses `font-mono` to match footer styling
+
 ## [0.11.1] - 2026-02-03
 
 ### Added
@@ -233,7 +249,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Environment variables for sensitive Twitch API credentials
 - Proper .gitignore to exclude .env files
 
-[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.11.1...HEAD
+[Unreleased]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.12.0...HEAD
+[0.12.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.11.1...v0.12.0
 [0.11.1]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.11.0...v0.11.1
 [0.11.0]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.10.1...v0.11.0
 [0.10.1]: https://github.com/pedrorvelloso/randomizerbrasil/compare/v0.10.0...v0.10.1

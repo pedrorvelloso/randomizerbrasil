@@ -1,7 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 import { socials } from "@/lib/socials";
 import { navLinks } from "@/lib/navigation";
+import { getBaseUrl } from "@/lib/utils/get-base-url";
+import { Logo } from "./logo";
 
 export function Footer() {
   return (
@@ -17,22 +19,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           {/* Brand Section */}
           <div className="md:col-span-5 space-y-6">
-            <Link href="/" className="inline-flex items-center gap-3">
-              <Image
-                src="/images/logos/rbr-icon-logo.svg"
-                alt="RBR Logo"
-                width={48}
-                height={48}
-              />
-              <div className="flex flex-col">
-                <span className="text-xl font-bold text-foreground font-syne">
-                  Randomizer Brasil
-                </span>
-                <span className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
-                  Hub da Comunidade
-                </span>
-              </div>
-            </Link>
+            <Logo size="md" />
 
             <p className="text-sm text-muted-foreground font-dm-sans leading-relaxed max-w-sm">
               Conectando a comunidade brasileira de randomizers.
@@ -55,6 +42,15 @@ export function Footer() {
                   {link.label}
                 </Link>
               ))}
+              <a
+                href={`${getBaseUrl()}/bot`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-brand-cyan transition-colors font-dm-sans"
+              >
+                Adicionar Bot
+                <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
             </nav>
           </div>
 

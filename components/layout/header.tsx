@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { navLinks } from "@/lib/navigation";
+import { Logo } from "./logo";
 
 // Dynamic import for mobile menu to reduce initial bundle size
 // Sheet components are heavy and only needed on mobile
@@ -22,39 +23,22 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo Section */}
+        {/* Mobile: icon only */}
         <Link
           href="/"
-          className="flex items-center gap-3"
+          className="md:hidden"
           aria-label="Randomizer Brasil Home"
         >
-          {/* Logo */}
           <Image
             src="/images/logos/rbr-icon-logo.svg"
             alt="RBR Logo"
             width={40}
             height={40}
-            className="md:hidden"
             priority
           />
-          <Image
-            src="/images/logos/rbr-icon-logo.svg"
-            alt="RBR Logo"
-            width={48}
-            height={48}
-            className="hidden md:block"
-            priority
-          />
-
-          {/* Brand Text */}
-          <div className="hidden md:flex flex-col">
-            <span className="text-lg md:text-xl font-bold text-foreground">
-              Randomizer Brasil
-            </span>
-            <span className="hidden sm:block text-xs text-muted-foreground">
-              Hub da Comunidade
-            </span>
-          </div>
         </Link>
+        {/* Desktop: full logo */}
+        <Logo size="md" className="hidden md:inline-flex" />
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-stretch h-full" aria-label="Main navigation">

@@ -6,6 +6,7 @@ import {
   YoutubeIcon,
   InstagramIcon,
 } from "@/components/icons/social-icons";
+import { getBaseUrl } from "@/lib/utils/get-base-url";
 
 export interface Social {
   icon: ComponentType<{ className?: string }>;
@@ -23,7 +24,7 @@ export const socials: Social[] = [
   },
   {
     icon: DiscordIcon,
-    href: "https://discord.gg/U4U62Gysku",
+    href: `${getBaseUrl()}/discord`,
     label: "Discord",
     color: "#5865F2",
   },
