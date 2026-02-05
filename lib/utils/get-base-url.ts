@@ -4,11 +4,15 @@
  */
 export function getBaseUrl(): string {
   const env = process.env.VERCEL_ENV
-  const isProductionUrl = env === 'production' || env === 'preview'
+  const isProductionUrl = env === 'production'
 
   // Production: use the production URL
   if (isProductionUrl && process.env.VERCEL_PROJECT_PRODUCTION_URL) {
     return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+
+  if (env === 'preview') {
+    return `https://preview.${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
   }
 
   // Fallback to deployment-specific URL
