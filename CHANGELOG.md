@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.12.1] - 2026-02-05
+
+### Added
+
+- `Footnote` component for styled inline notes with left border accent
+- `SocialButton` component for platform-specific buttons (Discord, Twitch) with link and button modes
+
+### Changed
+
+- Button component now has `cursor-pointer` by default and removed all box shadows
+- Refactored About page to use `Footnote` and `SocialButton` components
+- `ConnectButton` refactored to use `SocialButton` component
+
 ## [0.12.0] - 2026-02-04
 
 ### Added
