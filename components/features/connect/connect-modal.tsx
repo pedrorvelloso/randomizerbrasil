@@ -106,7 +106,7 @@ export function ConnectModal({
           <Button
             onClick={handleConfirm}
             disabled={isLoading}
-            className="bg-brand-cyan hover:bg-brand-cyan/80 hover:shadow-md hover:shadow-brand-cyan/25 text-brand-navy"
+            className="bg-brand-cyan hover:bg-brand-cyan/80 text-brand-navy"
           >
             {isLoading ? (
               <>

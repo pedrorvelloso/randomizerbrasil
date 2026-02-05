@@ -8,10 +8,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Footnote } from "@/components/ui/footnote";
+import { SocialButton } from "@/components/ui/social-button";
 import { ConnectButton } from "@/components/features/connect";
 import { socials } from "@/lib/socials";
 import { getBaseUrl } from "@/lib/utils/get-base-url";
-import { DiscordIcon } from "@/components/icons/social-icons";
 
 export default function AboutPage() {
   const [openItem, setOpenItem] = useState<string>("");
@@ -157,7 +158,7 @@ export default function AboutPage() {
                       <span className="w-6 h-6 rounded-full bg-brand-cyan text-brand-navy text-sm font-bold flex items-center justify-center">1</span>
                       Forma mais rápida: Conecte pelo site
                     </h4>
-                    <p className="text-muted-foreground text-sm mb-3">
+                    <p className="text-muted-foreground mb-3">
                       Se você já é membro do nosso Discord e tem sua conta Twitch conectada ao Discord,
                       basta clicar no botão abaixo para registrar sua stream automaticamente.
                     </p>
@@ -170,7 +171,7 @@ export default function AboutPage() {
                       <span className="w-6 h-6 rounded-full bg-muted text-muted-foreground text-sm font-bold flex items-center justify-center">2</span>
                       Alternativa: Use o comando do bot
                     </h4>
-                    <p className="text-muted-foreground text-sm mb-3">
+                    <p className="text-muted-foreground mb-3">
                       Você também pode registrar sua stream diretamente pelo Discord:
                     </p>
                   </div>
@@ -204,11 +205,11 @@ export default function AboutPage() {
                       </p>
                     </li>
                   </ol>
-                  <p className="text-sm text-muted-foreground border-l-2 border-brand-cyan/50 pl-4 py-2 bg-brand-cyan/5 rounded-r">
+                  <Footnote>
                     <strong className="text-brand-cyan">Importante:</strong> Sua stream só aparecerá na lista quando você estiver
                     transmitindo um dos jogos randomizados que a comunidade acompanha. Certifique-se de estar jogando
                     um dos títulos listados acima!
-                  </p>
+                  </Footnote>
                 </AccordionContent>
               </AccordionItem>
 
@@ -226,19 +227,13 @@ export default function AboutPage() {
                       <li>Exibe a lista de runners da comunidade</li>
                     </ul>
                   </div>
-                  <p className="text-sm text-muted-foreground border-l-2 border-brand-cyan/50 pl-4 py-2 bg-brand-cyan/5 rounded-r mb-4">
+                  <Footnote className="mb-4">
                     <strong className="text-brand-cyan">Nota:</strong> O registro de streams só pode ser feito no servidor
                     oficial da RBR. O bot em servidores externos serve para acompanhar a comunidade.
-                  </p>
-                  <a
-                    href={`${getBaseUrl()}/bot`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold rounded-lg transition-colors"
-                  >
-                    <DiscordIcon className="w-5 h-5" />
+                  </Footnote>
+                  <SocialButton platform="discord" href={`${getBaseUrl()}/bot`}>
                     Adicionar Bot ao Servidor
-                  </a>
+                  </SocialButton>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
